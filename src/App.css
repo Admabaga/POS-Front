@@ -1,0 +1,142 @@
+/*NAVBAR*/
+.navBar .navbar-brand{
+  display: flex;
+}
+.nav{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: auto; 
+  margin: 15px;
+}
+
+.navBar {
+  display: flex;
+}
+
+.nav-link {
+  margin-right: 20px;
+  color: #1f2e41 !important;
+}
+.nav-link:hover {
+  color: #358ef3 !important;
+}
+
+.accordion-item{
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+  
+}
+
+.accordion-button {
+  background-color: #8C6751 !important;
+  color: white !important;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.accordion-button:hover {
+  background-color: #77533c !important;
+}
+.accordion-collapse.collapse.show{
+  background-color:#C7CFD9;
+  font-size: 17px;
+  color: white !important;
+}
+
+/*HEADER*/
+.header{
+  width: 100%;
+  max-height: 200px;
+  border-bottom: 1px solid #071a3b52 ;
+}
+.header img{
+  max-height: 150px;
+  margin: 15px;
+}
+
+/*MAIN*/
+.card{
+  width: 55%;
+  margin: 25px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card-header {
+  background-color: #8C6751 !important;
+  color: white !important;
+}
+.card-body {
+  background-color: #A1A61F !important;
+  color: white !important;
+}
+
+.main{
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between;
+  height: auto;
+}
+
+.mb-3{
+  max-width: 95%;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-left: 5px;
+}
+
+.botones{
+  background-color: #8C6751 !important;
+  max-width: 50%;
+  color: #f0f0f0 !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-color: #77533c !important;
+}
+
+.botones:hover{
+  background-color: #77533c !important;
+  border-color: #77533c !important;
+}
+
+.custom-table {
+  background-color: #A1A61F;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.custom-table th {
+  font-weight: bold;
+  padding: 15px;
+  text-align: left;
+  background-color:#898C27 !important;
+}
+
+.custom-table td {
+  padding: 12px;
+  vertical-align: top;
+  background-color: #A1A61F !important;
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.text-uppercase.mb-4.font-weight-bold.text-warning{
+  color: #a6d140 !important;
+}
+
+
+
+
+
+
+
+
+
+

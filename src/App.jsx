@@ -8,6 +8,7 @@ import RegistroProducto from './Componentes/Productos/ProductoRegistro.jsx'
 import VerProductos from './Componentes/Productos/VerProductos.jsx';
 import BuscarProducto from './Componentes/Productos/BuscarPorProducto.jsx';
 import Footer from './Componentes/Footer.jsx'
+import Notificaciones from './Componentes/Notificaciones.jsx';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/productos/buscarProducto' element={<BuscarProducto/>}></Route>
         </Routes>
       </BrowserRouter>
+      <Notificaciones/>
       </section>
       <Footer></Footer>
     </>

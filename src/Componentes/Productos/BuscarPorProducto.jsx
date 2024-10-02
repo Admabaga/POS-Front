@@ -16,9 +16,10 @@ export default function BuscarProducto(){
       {
         id: 1,
         name: "Cerveza",
-        description: "Descripción cerveza",
+        productoPrecio: "Cerveza grande",
         category: "Licores",
-        cantidad: "5"
+        cantidad: "5",
+        precioUnitario:'7500'
       }
     ];
     

@@ -8,16 +8,18 @@ function VerProductos() {
     {
       id: 1,
       name: "Cerveza",
-      description: "Descripción cerveza",
+      productoPrecio: "Cerveza grande",
       category: "Licores",
-      cantidad: "5"
+      cantidad: "5",
+      precioUnitario:'7500'
     },
     {
       id: 2,
-      name: "Doritos",
-      description: "Descripción doritos",
-      category: "Mecato",
-      cantidad: "20"
+      name: "Cerveza",
+      productoPrecio: "Cerveza personal",
+      category: "Licores",
+      cantidad: "25",
+      precioUnitario:'3500'
     },
   ];
   

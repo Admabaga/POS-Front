@@ -19,7 +19,6 @@ function Navegacion() {
                     <Nav.Link href='/productos/buscarProducto'>Buscar por producto</Nav.Link>
                 </Accordion.Body>
             </Accordion.Item>
-
         </Container>
     </Navbar>
     <Navbar >

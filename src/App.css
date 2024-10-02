@@ -5,9 +5,9 @@
 .nav{
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 25%;
   height: auto; 
-  margin: 15px;
+  margin: 20px;
 }
 
 .navBar {
@@ -60,9 +60,16 @@
 }
 
 /*MAIN*/
+.notificacion{
+  width: 50% !important;
+  margin: 32px !important;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card{
-  width: 55%;
-  margin: 25px;
+  width: 40%;
+  margin: 20px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -78,7 +85,7 @@
 .main{
   display: flex !important;
   flex-wrap: wrap !important;
-  justify-content: space-between;
+  justify-content: space-around;
   height: auto;
 }
 
@@ -130,6 +137,27 @@
 .text-uppercase.mb-4.font-weight-bold.text-warning{
   color: #a6d140 !important;
 }
+
+/*FOOTER*/
+
+.col-md-4.col-lg-3.col-xl-3.mx-auto.mt-3 img {
+  width: 60px;
+  height:60px;
+  list-style-type: none;
+  margin: 10px;
+}
+
+li{
+  list-style: none;
+}
+.redes{
+  display: flex;
+  justify-content: center;
+}
+footer{
+  width: 100%;
+}
+
 
 
 

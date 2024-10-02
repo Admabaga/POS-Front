@@ -1,10 +1,16 @@
-import { Card } from 'react-bootstrap';
+import { Card, CardHeader, CardBody } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import Button from 'react-bootstrap/Button'
 import TablaProducto from './TablaProductos';
 import { useState } from 'react';
 
+
+const productos = [
+  { id: 1, nombreProducto: "Cerveza" },
+  { id: 2, nombreProducto: "Vino" },
+  { id: 3, nombreProducto: "Whisky" }
+];
 
 export default function BuscarProducto(){
     const [mostrarData, setMostrarData] = useState(false)
@@ -24,21 +30,22 @@ export default function BuscarProducto(){
     ];
     
     return(
-        <Card> 
-        <Card.Header>Buscar producto</Card.Header>
-        <Card.Body>
-        <FloatingLabel controlId="floatingSelect" label="Seleccion producto:">
+    <Card>
+      <CardHeader>Buscar producto</CardHeader>
+      <CardBody>
+        <FloatingLabel controlId="floatingSelect" label="Producto seleccionado:">
           <Form.Select className='mb-3'>
-            <option>Abrir para seleccionar menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option>Elije una opción</option>
+            {productos.map((producto) => (
+              <option key={producto.id} value={producto.id}>{producto.nombreProducto}</option>
+            ))}
           </Form.Select>
         </FloatingLabel>
-        <Button variant="outline-primary" onClick={()=>handleChange()} className='botones'>Buscar</Button>
-        {mostrarData == true &&
-         <TablaProducto objects={objects}/>}
-        </Card.Body>
+        <Button variant="outline-primary" onClick={handleChange} className='botones'>Buscar</Button>
+        {mostrarData && (
+          <TablaProducto objects={objects}/>
+        )}
+      </CardBody>
     </Card>
     )
 }

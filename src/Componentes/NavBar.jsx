@@ -26,9 +26,9 @@ function Navegacion() {
         <Accordion.Item eventKey="4">
             <Accordion.Header>Categorias</Accordion.Header>
                 <Accordion.Body>
-                    <Nav.Link href=''>Registrar categoria</Nav.Link>
-                    <Nav.Link href=''>Actualizar categoria</Nav.Link>
-                    <Nav.Link href=''>Ver categorias</Nav.Link>
+                    <Nav.Link href='/categorias/registarCategoria'>Registrar categoria</Nav.Link>
+                    <Nav.Link href='/categorias/actualizarCategoria'>Actualizar categoria</Nav.Link>
+                    <Nav.Link href='/categorias/verCategorias'>Ver categorias</Nav.Link>
                 </Accordion.Body>
         </Accordion.Item>
         </Container>

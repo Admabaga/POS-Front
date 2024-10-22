@@ -63,10 +63,10 @@ export default function RegistroProducto() {
             ref={inputRef}
             onChange={(nombre)=>setNombreProducto(nombre.target.value)}
           />
-          <label htmlFor="floatingInputCustom">Nombre </label>
+          <label htmlFor="floatingInputCustom">Nombre :</label>
         </Form.Floating>
         <div className='menssageError'>
-          {errorNomProducto  && <span>El nombre ingresado no es valido</span> }
+          {errorNomProducto  && <span>El nombre ingresado no es valido.</span> }
         </div>
         <Form.Floating className="mb-3">
           <Form.Control
@@ -74,10 +74,10 @@ export default function RegistroProducto() {
             value={cantidad}
             onChange={(cantidad)=>setCantidad(cantidad.target.value)}
           />
-          <label htmlFor="floatingPasswordCustom">Cantidad</label>
+          <label htmlFor="floatingPasswordCustom">Cantidad :</label>
         </Form.Floating>
         <div className='menssageError'>
-          {errorCantidad  && <span>La cantidad ingresada no es valida</span> }
+          {errorCantidad  && <span>La cantidad ingresada no es valida.</span> }
         </div>
         <Form.Floating className="mb-3">
         <div className="input-group ">
@@ -92,7 +92,7 @@ export default function RegistroProducto() {
         </div>
         </Form.Floating>
         <div className='menssageError'>
-          {errorValor  && <span>El valor ingresado no es valido</span> }
+          {errorValor  && <span>El valor ingresado no es valido.</span> }
         </div>
         <FloatingLabel controlId="floatingSelect" label="Categoria seleccionada:">
           <Form.Select className='mb-3'
@@ -105,7 +105,7 @@ export default function RegistroProducto() {
           </Form.Select>
       </FloatingLabel>
       <div className='menssageError'>
-          {errorCategoria  && <span>La categoria ingresada no es valida</span> }
+          {errorCategoria  && <span>La categoria ingresada no es valida.</span> }
         </div>
       <FloatingLabel controlId="floatingSelect" label="Proveedor seleccionado:">
           <Form.Select className='mb-3'
@@ -119,7 +119,7 @@ export default function RegistroProducto() {
           </Form.Select>
       </FloatingLabel>
       <div className='menssageError'>
-          {errorProeveedor  && <span>El proveedor ingresado no es valido</span> }
+          {errorProeveedor  && <span>El proveedor ingresado no es valido.</span> }
         </div>
       <FloatingLabel controlId="floatingSelect" label="Producto precio seleccionado:">
           <Form.Select className='mb-3'
@@ -132,11 +132,11 @@ export default function RegistroProducto() {
           </Form.Select>
       </FloatingLabel>
       <div className='menssageError'>
-          {errorPrecio  && <span>El precio ingresado  no es valido</span> }
+          {errorPrecio  && <span>El precio ingresado  no es valido.</span> }
         </div>
       <Button type='submit' className={`botones ${tema === 'light' ? 'light-mode' : ''}`}>Guardar</Button>
       <div className='goodMenssage'>
-        {goodData && <p>Los datos ingresados son correctos</p>}
+        {goodData && <p>Datos enviados correctamente.</p>}
       </div>
       </Form>
       </Card.Body>

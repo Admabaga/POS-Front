@@ -11,9 +11,11 @@ export default function ActualizarCategoria() {
   const [iva, setIva] = useState('')
   const [idCategoria, setIdCategoria] = useState("")
   const inputRef = useRef(null)
-  const [errorNomCategoria, setErrorNomCategoria] = useState(false);
-  const [errorIva,  setErrorIva] = useState(false);
-  const [goodData,  setGoodData] = useState(false);
+  const [errorNomCategoria, setErrorNomCategoria] = useState(false)
+  const [errorIva,  setErrorIva] = useState(false)
+  const [errorIdCategoria,  setErrorIdCategoria] = useState(false)
+  const [goodData,  setGoodData] = useState(false)
+
   const limpiarYEnfocar = () => {
     setNombreCategoria('')
     setIva('')
@@ -24,13 +26,11 @@ export default function ActualizarCategoria() {
     e.preventDefault()
     setErrorNomCategoria(nombreCategoria  === '' ? true : false)
     setErrorIva(iva === '' ? true : false)
-    
-    
+    setErrorIdCategoria(idCategoria === '' ? true : false)
     if(nombreCategoria != '' && iva != ''){
       setGoodData(true)
       limpiarYEnfocar()
     }
-    
     
   }
 
@@ -43,12 +43,15 @@ export default function ActualizarCategoria() {
             <Form.Select className='mb-3'
             value={idCategoria}
             onChange={(idCategoria)=>setIdCategoria(idCategoria.target.value)}>
-            <option>Elije una opción</option>
+            <option value={""}>Elije una opción</option>
                 {categorias.map((categoria) => (
                 <option key={categoria.id} value={categoria.id}>{categoria.nombreCategoria}</option>
                 ))}
             </Form.Select>
         </FloatingLabel>
+        <div className='menssageError'>
+          {errorIdCategoria  && <span>La categoria elegida no es valida.</span> }
+        </div>
         <Form.Floating className="mb-3">
           <Form.Control
             type="text"
@@ -56,10 +59,10 @@ export default function ActualizarCategoria() {
             ref={inputRef}  
             onChange={(nombre)=>setNombreCategoria(nombre.target.value)}
           />
-          <label htmlFor="floatingInputCustom">Nombre </label>
+          <label htmlFor="floatingInputCustom">Nombre :</label>
         </Form.Floating>
         <div className='menssageError'>
-          {errorNomCategoria  && <span>El nombre ingresado no es valido</span> }
+          {errorNomCategoria  && <span>El nombre ingresado no es valido.</span> }
         </div>
         <Form.Floating className="mb-3">
           <Form.Control
@@ -67,14 +70,14 @@ export default function ActualizarCategoria() {
             value={iva}
             onChange={(iva)=>setIva(iva.target.value)}
           />
-          <label htmlFor="floatingPasswordCustom">Iva</label>
+          <label htmlFor="floatingPasswordCustom">Iva :</label>
         </Form.Floating>
         <div className='menssageError'>
-            {errorIva && <span>El valor del iva no es valido</span>}
+            {errorIva && <span>El valor del iva no es valido.</span>}
         </div>
       <Button type='submit' variant="outline-primary" className={`botones ${tema === 'light' ? 'light-mode' : ''}`}>Actualizar</Button>
                 <div className='goodMenssage'>
-        {goodData && <p>Los datos ingresados son correctos</p>}
+        {goodData && <p>Datos enviados correctamente.</p>}
       </div>
       </Form>
       </Card.Body>

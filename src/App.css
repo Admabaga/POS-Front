@@ -188,10 +188,13 @@
 {
   color: rgb(202, 5, 5);
   margin: 10px;
+  font-family: 'Roboto', sans-serif;
 }
 .goodMenssage
 {
   color: rgb(27, 107, 27);
+  font-family: 'Roboto', sans-serif;
+  margin: 10px;
 }
 
 .custom-table.light-mode td {

@@ -1,10 +1,12 @@
 import { Table } from 'react-bootstrap';
-
+import TemaContexto from '../TemaContexto';
+import { useContext } from 'react';
 export default function TablaCategoria({objects}){
+    const { tema } = useContext(TemaContexto)
     const columns = ['ID', 'Nombre', 'Iva'];
     return(
         <div className="table-container">
-        <Table className="custom-table">
+        <Table className={`custom-table ${tema === 'light' ? 'light-mode' : ''}`}>
         <thead>
             <tr>
             {columns.map((column, index) => (

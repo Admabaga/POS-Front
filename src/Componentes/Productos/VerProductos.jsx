@@ -1,9 +1,11 @@
 import React from 'react';
 import { Card} from 'react-bootstrap';
 import TablaProducto from './TablaProductos'
+import {  useContext } from 'react'
+import TemaContexto from '../TemaContexto';
 
 function VerProductos() {
- 
+ const {tema} = useContext(TemaContexto)
   const objects = [
     {
       id: 1,
@@ -15,18 +17,27 @@ function VerProductos() {
     },
     {
       id: 2,
-      name: "Cerveza",
-      productoPrecio: "Cerveza personal",
+      name: "Whisky",
+      productoPrecio: "Botella ",
       category: "Licores",
       cantidad: "25",
-      precioUnitario:'3500'
+      precioUnitario:'350000'
     },
-  ];
+
+    {
+      id: 3,
+      name: "Vino",
+      productoPrecio: "Botella ",
+      category: "Licores",
+      cantidad: "25",
+      precioUnitario:'30000'
+    }
+  ]
   
   return (
     <Card> 
-        <Card.Header>Ver productos</Card.Header>
-        <Card.Body>
+        <Card.Header className={`${tema === 'light' ? 'light-mode' : ''}`}>Ver productos</Card.Header>
+        <Card.Body className={`${tema === 'light' ? 'light-mode' : ''}`}>
         <TablaProducto objects={objects}/>
         </Card.Body>
     </Card>

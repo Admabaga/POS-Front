@@ -1,6 +1,11 @@
 body{
   background-color: #52591B;
 }
+
+body.light-mode {
+  background-color: #a5a5a5;
+}
+
 body {
   margin: 0;
   padding: 0;

@@ -22,6 +22,10 @@
   color: #358ef3 !important;
 }
 
+.navbar.light-mode.accordion-button{
+  background-color: #A1A61F!important;
+}
+
 .accordion-item{
   width: 100%;
   background-color: #f0f0f0;
@@ -39,6 +43,12 @@
   font-size: 25px;
 }
 
+.light-mode.accordion-header.accordion-button.collapsed {
+  background-color: #0c0a0a !important; 
+  color: rgb(226, 225, 225) !important;
+}
+
+
 .accordion-button:hover {
   background-color: #77533c !important;
 }
@@ -52,8 +62,16 @@
 .header{
   width: 100%;
   max-height: 200px;
-  border-bottom: 1px solid #071a3b52 ;
+  display: flex;
+  justify-content: space-between !important;
+  flex-wrap: wrap;
 }
+
+.tema{
+  height: 40px;
+  padding: auto;
+}
+
 .header img{
   max-height: 150px;
   margin: 15px;
@@ -67,20 +85,39 @@
   flex-wrap: wrap;
 }
 
+.mainImg{
+  height: 550px;
+  width: 55%;
+  margin: 20px;
+}
+
 .card{
   width: 40%;
   margin: 20px;
   display: flex;
   flex-wrap: wrap;
 }
+
 .card-header {
   background-color: #8C6751 !important;
   color: white !important;
 }
+
+.light-mode.card-header {
+  background-color: #383838 !important;
+  color: white !important;
+}
+
 .card-body {
   background-color: #A1A61F !important;
   color: white !important;
 }
+
+.card-body.light-mode{
+  background-color: #C7CFD9 !important;
+  color: white !important;
+}
+
 
 .main{
   display: flex !important;
@@ -111,10 +148,25 @@
   border-color: #77533c !important;
 }
 
+.light-mode.botones {
+  background-color: #1a1919 !important;
+  color: #cac8c8 !important;
+  border-color: #1a1919 !important;
+}
+.light-mode.botones:hover{
+  background-color: #807e7e !important;
+  border-color: #a7a3a2 !important;
+}
+
+
 .custom-table {
   background-color: #A1A61F;
   border-collapse: separate;
   border-spacing: 0 10px;
+}
+.custom-table.light-mode {
+  background-color: #C7CFD9;
+
 }
 
 .custom-table th {
@@ -123,11 +175,18 @@
   text-align: left;
   background-color:#898C27 !important;
 }
+.custom-table.light-mode th {
+  background-color:#666c74 !important;
+}
 
 .custom-table td {
   padding: 12px;
   vertical-align: top;
   background-color: #A1A61F !important;
+}
+
+.custom-table.light-mode td {
+  background-color: #C7CFD9 !important;
 }
 
 .custom-table tr:nth-child(even) {

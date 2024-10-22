@@ -2,11 +2,10 @@ import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import Button from 'react-bootstrap/Button'
-import {  useContext, useState, useRef, useEffect } from 'react'
+import { useContext, useState, useRef } from 'react'
 import TemaContexto from '../TemaContexto';
 
-
-export default function RegistroProducto() {
+export default function ActualizarProductos() {
   const { tema } = useContext(TemaContexto)
   const [nombreProducto, setNombreProducto] = useState('')
   const [cantidad, setCantidad] = useState('')
@@ -14,7 +13,9 @@ export default function RegistroProducto() {
   const [categoria, setCategoria] = useState('')
   const [proveedor, setProveedor] = useState('')
   const [productoPrecio, setProductoPrecio] = useState('')
+  const [idProducto, setIdProducto] = useState('')
   const inputRef = useRef(null)
+
   const limpiarYEnfocar = () => {
     setNombreProducto('')
     setCantidad('')
@@ -22,29 +23,42 @@ export default function RegistroProducto() {
     setCategoria('')
     setProveedor('')
     setProductoPrecio('')
+    setIdProducto('')
     inputRef.current.focus()
   }
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     limpiarYEnfocar()
   }
-
     
   return (
     <Card>
-      <Card.Header className={`${tema === 'light' ? 'light-mode' : ''}`}>Registrar producto</Card.Header>
+      <Card.Header className={`${tema === 'light' ? 'light-mode' : ''}`}>
+        Actualizar producto
+      </Card.Header>
       <Card.Body className={`${tema === 'light' ? 'light-mode' : ''}`}>
-      <Form onSubmit={handleSubmit}>
-      <Form.Floating className="mb-3">
-          <Form.Control
-            type="text"
-            value={nombreProducto}
-            ref={inputRef}
-            onChange={(nombre)=>setNombreProducto(nombre.target.value)}
-          />
-          <label htmlFor="floatingInputCustom">Nombre </label>
-        </Form.Floating>
+        <Form onSubmit={handleSubmit}>
+          <FloatingLabel controlId="floatingSelect" label="Producto a actualizar:">
+            <Form.Select className='mb-3'
+              value={idProducto}
+              onChange={(e) => setIdProducto(e.target.value)}
+            >
+              <option>Elije una opción</option>
+              {productos.map((producto) => (
+                <option key={producto.id} value={producto.id}>{producto.nombreProducto}</option>
+              ))}
+            </Form.Select>
+          </FloatingLabel>
+          <Form.Floating className="mb-3">
+            <Form.Control
+              type="text"
+              value={nombreProducto}
+              ref={inputRef}
+              onChange={(e) => setNombreProducto(e.target.value)}
+            />
+            <label htmlFor="floatingInputCustom">Nombre </label>
+          </Form.Floating>
         <Form.Floating className="mb-3">
           <Form.Control
             type="number"
@@ -96,7 +110,7 @@ export default function RegistroProducto() {
             ))}
           </Form.Select>
       </FloatingLabel>
-      <Button type='submit' className={`botones ${tema === 'light' ? 'light-mode' : ''}`}>Guardar</Button>
+      <Button type='submit' className={`botones ${tema === 'light' ? 'light-mode' : ''}`}>Actualizar</Button>
       </Form>
       </Card.Body>
     </Card>
@@ -122,3 +136,8 @@ const categorias = [
   { id: 3, nombreCategoria: 'Electronica' }
 ]
 
+const productos = [
+    { id: 1, nombreProducto: 'Doritos' },
+    { id: 2, nombreProducto: 'Leche' },
+    { id: 3, nombreProducto: 'Vino' }
+  ]

@@ -15,6 +15,15 @@ export default function ActualizarProductos() {
   const [productoPrecio, setProductoPrecio] = useState('')
   const [idProducto, setIdProducto] = useState('')
   const inputRef = useRef(null)
+  const [errorNomProducto, setErrorNomProducto] = useState(false);
+  const [errorValor,  setErrorValor] = useState(false);
+  const [errorCantidad, setErrorCantidad] = useState(false)
+  const [errorCategoria, setErrorCategoria] = useState (false)
+  const [errorProeveedor, setErrorProeveedor] = useState(false)
+  const [errorPrecio, setErrorPrecio] = useState(false)
+  const [errorProducto, setErrorProducto] = useState(false)
+
+  const [goodData,  setGoodData] = useState(false);
 
   const limpiarYEnfocar = () => {
     setNombreProducto('')
@@ -26,11 +35,26 @@ export default function ActualizarProductos() {
     setIdProducto('')
     inputRef.current.focus()
   }
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    limpiarYEnfocar()
+    setErrorNomProducto(nombreProducto  === '' ? true : false)
+    setErrorValor(valor === '' ? true : false)
+    setErrorCantidad(cantidad === '' ? true : false)
+    setErrorCategoria(categoria === '' ? true : false)
+    setErrorProeveedor(proveedor === '' ? true : false)
+    setErrorPrecio(productoPrecio === '' ? true : false)
+    setErrorProducto(idProducto=== '' ? true : false)
+    
+    
+    if(nombreProducto !== '' && valor !== '' && cantidad !== '' && categoria !== '' && proveedor !== '' && productoPrecio !== ''  && idProducto !== ''){
+
+      setGoodData(true)
+      limpiarYEnfocar()
+    }
+    
+    
   }
+  
     
   return (
     <Card>
@@ -44,21 +68,27 @@ export default function ActualizarProductos() {
               value={idProducto}
               onChange={(e) => setIdProducto(e.target.value)}
             >
-              <option>Elije una opción</option>
+              <option value={''}>Elije una opción</option>
               {productos.map((producto) => (
                 <option key={producto.id} value={producto.id}>{producto.nombreProducto}</option>
               ))}
             </Form.Select>
           </FloatingLabel>
+          <div className='menssageError'>
+            {errorProducto && <span>El producto ingresado no es correcto</span>}
+        </div>
           <Form.Floating className="mb-3">
-            <Form.Control
-              type="text"
-              value={nombreProducto}
-              ref={inputRef}
-              onChange={(e) => setNombreProducto(e.target.value)}
-            />
-            <label htmlFor="floatingInputCustom">Nombre </label>
-          </Form.Floating>
+          <Form.Control
+            type="text"
+            value={nombreProducto}
+            ref={inputRef}
+            onChange={(nombre)=>setNombreProducto(nombre.target.value)}
+          />
+          <label htmlFor="floatingInputCustom">Nombre </label>
+        </Form.Floating>
+        <div className='menssageError'>
+          {errorNomProducto  && <span>El nombre ingresado no es valido</span> }
+        </div>
         <Form.Floating className="mb-3">
           <Form.Control
             type="number"
@@ -67,6 +97,9 @@ export default function ActualizarProductos() {
           />
           <label htmlFor="floatingPasswordCustom">Cantidad</label>
         </Form.Floating>
+        <div className='menssageError'>
+          {errorCantidad  && <span>La cantidad ingresada no es valida</span> }
+        </div>
         <Form.Floating className="mb-3">
         <div className="input-group ">
             <span className="input-group-text">$</span>
@@ -79,38 +112,53 @@ export default function ActualizarProductos() {
           
         </div>
         </Form.Floating>
+        <div className='menssageError'>
+          {errorValor  && <span>El valor ingresado no es valido</span> }
+        </div>
         <FloatingLabel controlId="floatingSelect" label="Categoria seleccionada:">
           <Form.Select className='mb-3'
             value={categoria}
             onChange={(categoria)=>setCategoria(categoria.target.value)}>
-            <option>Elije una opción</option>
+            <option value={''}>Elije una opción</option>
                 {categorias.map((categoria) => (
                 <option key={categoria.id} value={categoria.id}>{categoria.nombreCategoria}</option>
                 ))}
           </Form.Select>
       </FloatingLabel>
+      <div className='menssageError'>
+          {errorCategoria  && <span>La categoria ingresada no es valida</span> }
+        </div>
       <FloatingLabel controlId="floatingSelect" label="Proveedor seleccionado:">
           <Form.Select className='mb-3'
           value={proveedor}
           onChange={(proveedor)=>setProveedor(proveedor.target.value)}
           >
-          <option>Elije una opción</option>
+          <option value={''}>Elije una opción</option>
             {proveedores.map((proveedor) => (
-              <option key={proveedor.id} value={proveedor.id}>{proveedor.nombreProveedor}</option>
+              <option  key={proveedor.id} value={proveedor.id}>{proveedor.nombreProveedor}</option>
             ))}
           </Form.Select>
       </FloatingLabel>
+      <div className='menssageError'>
+          {errorProeveedor  && <span>El proveedor ingresado no es valido</span> }
+        </div>
       <FloatingLabel controlId="floatingSelect" label="Producto precio seleccionado:">
           <Form.Select className='mb-3'
             value={productoPrecio}
             onChange={(productoPrecio)=>setProductoPrecio(productoPrecio.target.value)} >
-          <option>Elije una opción</option>
+          <option value={''}>Elije una opción</option>
             {productoPrecios.map((productoPrecio) => (
               <option key={productoPrecio.id} value={productoPrecio.id}>{productoPrecio.nombreProductoPrecio}</option>
             ))}
           </Form.Select>
       </FloatingLabel>
-      <Button type='submit' className={`botones ${tema === 'light' ? 'light-mode' : ''}`}>Actualizar</Button>
+      <div className='menssageError'>
+          {errorPrecio  && <span>El precio ingresado  no es valido</span> }
+        </div>
+      <Button type='submit' className={`botones ${tema === 'light' ? 'light-mode' : ''}`}>Guardar</Button>
+      <div className='goodMenssage'>
+        {goodData && <p>Los datos ingresados son correctos</p>}
+      </div>
       </Form>
       </Card.Body>
     </Card>

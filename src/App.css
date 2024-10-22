@@ -184,6 +184,15 @@
   vertical-align: top;
   background-color: #A1A61F !important;
 }
+.menssageError
+{
+  color: rgb(202, 5, 5);
+  margin: 10px;
+}
+.goodMenssage
+{
+  color: rgb(27, 107, 27);
+}
 
 .custom-table.light-mode td {
   background-color: #C7CFD9 !important;
